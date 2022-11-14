@@ -1,20 +1,20 @@
-// import { client } from "./mongo.js";
+import { client } from "./mongo.js";
 import { getPptr } from "./pptr-init.js";
 
-// export const setSrcInDb = async (src) => {
-//   await client.connect();
-//   try {
-//     const db = client.db("main");
+export const setSrcInDb = async (src) => {
+  await client.connect();
+  try {
+    const db = client.db("main");
 
-//     await db.collection("archillect-api").replaceOne({}, { src });
+    await db.collection("archillect-api").replaceOne({}, { src });
 
-//     return null;
-//   } catch (e) {
-//     console.error(e);
-//   } finally {
-//     client.close();
-//   }
-// };
+    return null;
+  } catch (e) {
+    console.error(e);
+  } finally {
+    client.close();
+  }
+};
 
 export const scrapeImgUrl = async () => {
   const { page, browser } = await getPptr();

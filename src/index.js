@@ -1,6 +1,6 @@
-import { scrapeImgUrl } from "./utils.js";
+import { scrapeImgUrl, setSrcInDb } from "./utils.js";
 
-const x = await scrapeImgUrl();
-console.log(x);
+const b64url = await scrapeImgUrl();
+await setSrcInDb(b64url);
 
 export {};
