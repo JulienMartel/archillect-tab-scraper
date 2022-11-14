@@ -3,6 +3,7 @@ import puppeteer from "puppeteer-extra";
 
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import AdblockerPlugin from "puppeteer-extra-plugin-adblocker";
+import { executablePath } from "puppeteer";
 
 puppeteer.use(StealthPlugin()).use(AdblockerPlugin({ blockTrackers: true }));
 
@@ -60,6 +61,7 @@ export const getPptr = async (headless = true) => {
     headless,
     args: minimal_args,
     defaultViewport: { width: 1920, height: 1080 },
+    executablePath: executablePath(),
   });
 
   let [page] = await browser.pages();
