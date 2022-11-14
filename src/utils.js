@@ -8,7 +8,7 @@ export const setSrcInDb = async (src) => {
 
     await db.collection("archillect-api").replaceOne({}, { src });
 
-    return null;
+    return true;
   } catch (e) {
     console.error(e);
   } finally {
